@@ -19,3 +19,16 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
                       
 # display the table on the page
 streamlit.dataframe(fruits_to_show)
+
+ # Different ways to use the API
+
+st.download_button('Download file', binary_contents)  # Defaults to 'application/octet-stream'
+
+with open('myfile.zip', 'rb') as f:
+   st.download_button('Download Zip', f, file_name='archive.zip')  # Defaults to 'application/octet-stream'
+
+# You can also grab the return value of the button,
+# just like with any other button.
+
+if st.download_button(...):
+   st.write('Thanks for downloading!')
